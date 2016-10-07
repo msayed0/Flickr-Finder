@@ -114,12 +114,11 @@
 		0415BF361DA7EAA10095B73B /* Flickr Finder */ = {
 			isa = PBXGroup;
 			children = (
-				0415BF371DA7EAA10095B73B /* AppDelegate.swift */,
-				0415BF391DA7EAA10095B73B /* ViewController.swift */,
-				0415BF3B1DA7EAA10095B73B /* Main.storyboard */,
-				0415BF3E1DA7EAA10095B73B /* Assets.xcassets */,
-				0415BF401DA7EAA10095B73B /* LaunchScreen.storyboard */,
-				0415BF431DA7EAA10095B73B /* Info.plist */,
+				047C72021DA7FB2400319DC9 /* App Delegate */,
+				047C72001DA7FB1100319DC9 /* View Controllers */,
+				047C72041DA7FB3400319DC9 /* Storyboards and Views */,
+				047C72011DA7FB1A00319DC9 /* Custom Views */,
+				047C72031DA7FB2B00319DC9 /* Supporting Files */,
 			);
 			path = "Flickr Finder";
 			sourceTree = "<group>";
@@ -140,6 +139,47 @@
 				0415BF591DA7EAA10095B73B /* Info.plist */,
 			);
 			path = "Flickr FinderUITests";
+			sourceTree = "<group>";
+		};
+		047C72001DA7FB1100319DC9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0415BF391DA7EAA10095B73B /* ViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		047C72011DA7FB1A00319DC9 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		047C72021DA7FB2400319DC9 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				0415BF371DA7EAA10095B73B /* AppDelegate.swift */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		047C72031DA7FB2B00319DC9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0415BF3E1DA7EAA10095B73B /* Assets.xcassets */,
+				0415BF431DA7EAA10095B73B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		047C72041DA7FB3400319DC9 /* Storyboards and Views */ = {
+			isa = PBXGroup;
+			children = (
+				0415BF3B1DA7EAA10095B73B /* Main.storyboard */,
+				0415BF401DA7EAA10095B73B /* LaunchScreen.storyboard */,
+			);
+			name = "Storyboards and Views";
 			sourceTree = "<group>";
 		};
 		5041399967BE6DC5EBBB5A53 /* Frameworks */ = {
@@ -601,6 +641,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Flickr Finder/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Mobiquity.Flickr-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -614,6 +655,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Flickr Finder/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Mobiquity.Flickr-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
