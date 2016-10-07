@@ -1,0 +1,22 @@
+PODS:
+  - Alamofire (4.0.1)
+  - AlamofireImage (3.1.0):
+    - Alamofire (~> 4.0)
+  - FlickrKit (1.0.8)
+  - SVProgressHUD (2.0.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - FlickrKit
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
+  FlickrKit: beadf880a10ccaa2f13666d04112324fe08815e2
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+
+PODFILE CHECKSUM: d6fb2bb77020d5319cf5969900e4521eaa518c19
+
+COCOAPODS: 1.1.0.rc.2
