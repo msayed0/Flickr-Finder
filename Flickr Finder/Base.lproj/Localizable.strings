@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Flickr Finder
+
+  Created by Mohamed Sayed on 09/10/16.
+  Copyright © 2016 Mohamed Sayed. All rights reserved.
+*/
+
+"connectionOfflineMessage" = "Your Connection appears to be offline";
