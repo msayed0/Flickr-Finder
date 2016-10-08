@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rl7-Rb-vJf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--flickr finder-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="flickr finder" id="BYZ-38-t0r" customClass="SearchViewController" customModule="Flickr_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +17,80 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zvU-dt-NOR">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DefaultCell" rowHeight="80" id="Xml-3H-rwN" customClass="PhotoCellTableViewCell" customModule="Flickr_Finder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xml-3H-rwN" id="mni-td-l36">
+                                            <frame key="frameInset" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uIp-sg-PTR">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="64" id="9bQ-68-rTq"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-cA-IDz">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="gD5-cA-IDz" firstAttribute="leading" secondItem="uIp-sg-PTR" secondAttribute="trailing" constant="8" symbolic="YES" id="2Of-bV-qtb"/>
+                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="top" secondItem="mni-td-l36" secondAttribute="topMargin" constant="2" id="5tw-tU-wdR"/>
+                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="centerY" secondItem="mni-td-l36" secondAttribute="centerY" id="6gD-v1-Mlc"/>
+                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="centerY" secondItem="gD5-cA-IDz" secondAttribute="centerY" id="DSo-4u-TRV"/>
+                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="leading" secondItem="mni-td-l36" secondAttribute="leadingMargin" id="cMi-aJ-NGw"/>
+                                                <constraint firstItem="gD5-cA-IDz" firstAttribute="trailing" secondItem="mni-td-l36" secondAttribute="trailingMargin" id="xaa-If-QtB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="photoThumbNail" destination="uIp-sg-PTR" id="j1T-MP-bRj"/>
+                                            <outlet property="titleLabel" destination="gD5-cA-IDz" id="ZFt-TL-g20"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zvU-dt-NOR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="17F-jt-tRL"/>
+                            <constraint firstItem="zvU-dt-NOR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1XB-Jp-nnQ"/>
+                            <constraint firstItem="zvU-dt-NOR" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="8gS-Px-F23"/>
+                            <constraint firstAttribute="trailing" secondItem="zvU-dt-NOR" secondAttribute="trailing" id="lyQ-BM-SaP"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="kw3-5v-IOp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="976.79999999999995" y="-545.57721139430294"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5BB-Np-cxM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rl7-Rb-vJf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kHA-lZ-Dr1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7f3-dU-bvN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15s-vv-q9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="148" y="-545.57721139430294"/>
         </scene>
     </scenes>
 </document>

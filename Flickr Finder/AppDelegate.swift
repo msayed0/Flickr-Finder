@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //Navigationbar color customization
+        UIBarButtonItem.appearance().tintColor = UIColor.black
+        UINavigationBar.appearance().backgroundColor = UIColor.black
+//        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blue]
+        
+        //FlickrKit
         let apiKey: String! = kAPI_KEY
         let secret: String! = kSECRET
         if (apiKey == nil || secret == nil) {
