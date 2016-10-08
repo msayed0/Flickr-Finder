@@ -16,11 +16,10 @@ class PhotoModel    : NSObject {
     var location    : String!
     var desc        : String!
     
-    init(fromPhotoUrl passedPhotoUrl: URL,title passedTitle: String,owner ownerOfPhoto:String, andPhotoID phID:String){
+    init(fromPhotoUrl passedPhotoUrl: URL,title passedTitle: String, andPhotoID phID:String){
         photoUrl = passedPhotoUrl
         title = passedTitle
         photoID = phID
-        owner = ownerOfPhoto
     }
     
     /**
