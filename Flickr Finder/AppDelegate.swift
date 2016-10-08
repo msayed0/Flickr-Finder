@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Navigationbar color customization
         UIBarButtonItem.appearance().tintColor = UIColor.black
         UINavigationBar.appearance().backgroundColor = UIColor.black
-//        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blue]
         
         //FlickrKit
         let apiKey: String! = kAPI_KEY

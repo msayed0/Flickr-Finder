@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xml-3H-rwN" id="mni-td-l36">
-                                            <frame key="frameInset" width="375" height="79.5"/>
+                                            <frame key="frameInset" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uIp-sg-PTR">
@@ -38,6 +38,14 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmR-di-XOi">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="136" id="Fjl-2F-Fjj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -45,8 +53,11 @@
                                                 <constraint firstItem="uIp-sg-PTR" firstAttribute="top" secondItem="mni-td-l36" secondAttribute="topMargin" constant="2" id="5tw-tU-wdR"/>
                                                 <constraint firstItem="uIp-sg-PTR" firstAttribute="centerY" secondItem="mni-td-l36" secondAttribute="centerY" id="6gD-v1-Mlc"/>
                                                 <constraint firstItem="uIp-sg-PTR" firstAttribute="centerY" secondItem="gD5-cA-IDz" secondAttribute="centerY" id="DSo-4u-TRV"/>
+                                                <constraint firstItem="RmR-di-XOi" firstAttribute="bottom" secondItem="mni-td-l36" secondAttribute="bottomMargin" id="bSv-RC-dwu"/>
                                                 <constraint firstItem="uIp-sg-PTR" firstAttribute="leading" secondItem="mni-td-l36" secondAttribute="leadingMargin" id="cMi-aJ-NGw"/>
+                                                <constraint firstItem="RmR-di-XOi" firstAttribute="top" secondItem="mni-td-l36" secondAttribute="topMargin" constant="42" id="fQ5-20-If0"/>
                                                 <constraint firstItem="gD5-cA-IDz" firstAttribute="trailing" secondItem="mni-td-l36" secondAttribute="trailingMargin" id="xaa-If-QtB"/>
+                                                <constraint firstItem="RmR-di-XOi" firstAttribute="trailing" secondItem="gD5-cA-IDz" secondAttribute="trailing" id="zK3-bo-m0l"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -57,16 +68,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQ8-MM-DY8">
+                                <frame key="frameInset" minY="64" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zvU-dt-NOR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="17F-jt-tRL"/>
+                            <constraint firstItem="zvU-dt-NOR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="17F-jt-tRL"/>
                             <constraint firstItem="zvU-dt-NOR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1XB-Jp-nnQ"/>
                             <constraint firstItem="zvU-dt-NOR" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="8gS-Px-F23"/>
                             <constraint firstAttribute="trailing" secondItem="zvU-dt-NOR" secondAttribute="trailing" id="lyQ-BM-SaP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kw3-5v-IOp"/>
+                    <navigationItem key="navigationItem" title="Flickr Finder" id="kw3-5v-IOp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +94,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rl7-Rb-vJf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kHA-lZ-Dr1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="kHA-lZ-Dr1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
