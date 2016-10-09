@@ -16,6 +16,10 @@ class NetworkModel : PhotoGettingWrapper {
         return instance
     }()
     
+    public func isOffline() -> Bool {
+        return FKDUReachability.isOffline()
+    }
+    
     public func searchPhotosWithText(searchText: String , withCompletion: @escaping (_ searchedPhotos: [PhotoModel]) -> Void) {
         
         FlickrKit.shared().call("flickr.photos.search", args: ["text": searchText] , maxCacheAge: FKDUMaxAgeInfinite, completion: { (response, error) -> Void in
@@ -32,4 +36,5 @@ class NetworkModel : PhotoGettingWrapper {
             withCompletion(parsedphotoModelObject)
         })
     }
+
 }
