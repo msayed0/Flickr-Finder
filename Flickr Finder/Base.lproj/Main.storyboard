@@ -18,46 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zvU-dt-NOR">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search Results goes here, but first enter a search query above and hit Search" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPZ-Y3-XXn">
+                                <frame key="frameInset" minX="16" minY="350" width="343" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zvU-dt-NOR">
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DefaultCell" rowHeight="80" id="Xml-3H-rwN" customClass="PhotoCellTableViewCell" customModule="Flickr_Finder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DefaultCell" rowHeight="150" id="Xml-3H-rwN" customClass="PhotoCellTableViewCell" customModule="Flickr_Finder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xml-3H-rwN" id="mni-td-l36">
-                                            <frame key="frameInset" width="375" height="79"/>
+                                            <frame key="frameInset" width="375" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uIp-sg-PTR">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="64" id="9bQ-68-rTq"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-cA-IDz">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmR-di-XOi">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="136" id="Fjl-2F-Fjj"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uIp-sg-PTR"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-cA-IDz">
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="gD5-cA-IDz" firstAttribute="leading" secondItem="uIp-sg-PTR" secondAttribute="trailing" constant="8" symbolic="YES" id="2Of-bV-qtb"/>
-                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="top" secondItem="mni-td-l36" secondAttribute="topMargin" constant="2" id="5tw-tU-wdR"/>
-                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="centerY" secondItem="mni-td-l36" secondAttribute="centerY" id="6gD-v1-Mlc"/>
-                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="centerY" secondItem="gD5-cA-IDz" secondAttribute="centerY" id="DSo-4u-TRV"/>
-                                                <constraint firstItem="RmR-di-XOi" firstAttribute="bottom" secondItem="mni-td-l36" secondAttribute="bottomMargin" id="bSv-RC-dwu"/>
-                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="leading" secondItem="mni-td-l36" secondAttribute="leadingMargin" id="cMi-aJ-NGw"/>
-                                                <constraint firstItem="RmR-di-XOi" firstAttribute="top" secondItem="mni-td-l36" secondAttribute="topMargin" constant="42" id="fQ5-20-If0"/>
-                                                <constraint firstItem="gD5-cA-IDz" firstAttribute="trailing" secondItem="mni-td-l36" secondAttribute="trailingMargin" id="xaa-If-QtB"/>
-                                                <constraint firstItem="RmR-di-XOi" firstAttribute="trailing" secondItem="gD5-cA-IDz" secondAttribute="trailing" id="zK3-bo-m0l"/>
+                                                <constraint firstItem="gD5-cA-IDz" firstAttribute="leading" secondItem="mni-td-l36" secondAttribute="leadingMargin" constant="12" id="1Ig-LF-FKq"/>
+                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="leading" secondItem="mni-td-l36" secondAttribute="leading" id="EV9-RN-AXm"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gD5-cA-IDz" secondAttribute="bottom" constant="8" id="UNL-Kb-1GD"/>
+                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="centerY" secondItem="mni-td-l36" secondAttribute="centerY" id="Xjo-Bh-y2o"/>
+                                                <constraint firstItem="gD5-cA-IDz" firstAttribute="centerX" secondItem="mni-td-l36" secondAttribute="centerX" id="bgq-bm-lZu"/>
+                                                <constraint firstItem="uIp-sg-PTR" firstAttribute="centerX" secondItem="gD5-cA-IDz" secondAttribute="centerX" id="hNK-Bn-67T"/>
+                                                <constraint firstAttribute="bottom" secondItem="uIp-sg-PTR" secondAttribute="bottom" id="sLj-XQ-4Np"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -67,11 +60,18 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="JcH-rt-lkZ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hYb-ec-DzN"/>
+                                </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQ8-MM-DY8">
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Enter Your Search Query" translatesAutoresizingMaskIntoConstraints="NO" id="pQ8-MM-DY8">
                                 <frame key="frameInset" minY="64" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xpG-j4-ocT"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,6 +83,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Flickr Finder" id="kw3-5v-IOp"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="aPZ-Y3-XXn" id="quy-NN-gMs"/>
+                        <outlet property="searchBar" destination="pQ8-MM-DY8" id="mut-Vb-UvD"/>
+                        <outlet property="tableView" destination="zvU-dt-NOR" id="4NA-uY-sBZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

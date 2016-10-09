@@ -22,5 +22,17 @@ class PhotoCellTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func didScroll(tableView: UITableView, superView: UIView)
+    {
+        let rectInSuperView: CGRect = tableView.convert(self.frame, to: superView);
+        let distanceFromCenter = superView.frame.height/2 - rectInSuperView.minY;
+        let difference = self.photoThumbNail.frame.height - self.frame.height;
+        let move = (distanceFromCenter / superView.frame.height) * difference;
+        
+        var imageRect = self.photoThumbNail.frame;
+        imageRect.origin.y = -(difference / 2) + move;
+        self.photoThumbNail.frame = imageRect;
+    }
+    
 }
