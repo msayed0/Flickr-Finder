@@ -20,9 +20,9 @@ class NetworkModel : PhotoGettingWrapper {
         return FKDUReachability.isOffline()
     }
     
-    public func searchPhotosWithText(searchText: String , withCompletion: @escaping (_ searchedPhotos: [PhotoModel]) -> Void) {
+    public func searchPhotosWithText(searchText: String ,pageNumber: Int, withCompletion: @escaping (_ searchedPhotos: [PhotoModel]) -> Void) {
         
-        FlickrKit.shared().call("flickr.photos.search", args: ["text": searchText] , maxCacheAge: FKDUMaxAgeInfinite, completion: { (response, error) -> Void in
+        FlickrKit.shared().call("flickr.photos.search", args: ["text": searchText, "page":String(pageNumber)] , maxCacheAge: FKDUMaxAgeInfinite, completion: { (response, error) -> Void in
             
             let parsedResponse = FlickrParsingHandler.parseSearchResults(withResponse: response)
             withCompletion(parsedResponse)

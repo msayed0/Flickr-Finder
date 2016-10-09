@@ -10,8 +10,8 @@ import Foundation
 
 class PhotoGettingWrapper {
     
-    class func searchPhotosWithTextFromNetwork(searchText: String , withCompletion: @escaping (_ searchedPhotos: [PhotoModel]) -> Void) {
+    class func searchPhotosWithTextFromNetwork(searchText: String ,andPageNumber pageNumber: Int, withCompletion: @escaping (_ searchedPhotos: [PhotoModel]) -> Void) {
         
-        NetworkModel.sharedInstance.searchPhotosWithText(searchText: searchText, withCompletion:withCompletion)
+        NetworkModel.sharedInstance.searchPhotosWithText(searchText: searchText,pageNumber: pageNumber,withCompletion:withCompletion)
     }
 }

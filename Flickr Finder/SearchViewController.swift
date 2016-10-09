@@ -18,6 +18,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     //Variables
     var resultPhotos = [PhotoModel]()
+    var currentPageNumber : Int = 1
+    var lastCallTime :CFAbsoluteTime = CFAbsoluteTimeGetCurrent()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +44,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func filterContentForSearchText(searchText: String) {
         
         SVProgressHUD.show()
-        
-        PhotoGettingWrapper.searchPhotosWithTextFromNetwork(searchText: searchText, withCompletion:{searchedPhotos in
+        lastCallTime = CFAbsoluteTimeGetCurrent()
+        PhotoGettingWrapper.searchPhotosWithTextFromNetwork(searchText: searchText,andPageNumber: currentPageNumber,withCompletion:{searchedPhotos in
             if (searchedPhotos.count <= 0 && NetworkModel.sharedInstance.isOffline()) {
                 
                 SVProgressHUD.showError(withStatus:"connectionOfflineMessage".localizedWithComment(comment: "Offline Connection Message"))
             }
             else {
+                self.lastCallTime = CFAbsoluteTimeGetCurrent()
                 self.reloadTableViewWithPhotos(photos: searchedPhotos)
             }
         })
@@ -56,7 +59,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func reloadTableViewWithPhotos(photos: [PhotoModel]) {
         DispatchQueue.main.sync(execute: { () -> Void in
-            self.resultPhotos = photos
+            if currentPageNumber>1 {
+                self.resultPhotos.insert(contentsOf: photos, at: self.resultPhotos.count-1)
+            }
+            else {
+                self.resultPhotos = photos
+            }
             self.tableView.reloadData()
             SVProgressHUD.dismiss()
         })
@@ -99,9 +107,24 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func tableView(_ tableView:UITableView, willDisplay cell:UITableViewCell, forRowAt indexPath:IndexPath) {
+        
+        let lastRowIndex = tableView.numberOfRows(inSection: 0)
+        if indexPath.row == lastRowIndex - 1 {
+            
+            let endTime = CFAbsoluteTimeGetCurrent()
+            let timeInterval = endTime - lastCallTime
+            if timeInterval>3 {
+                self.currentPageNumber += 1
+                filterContentForSearchText(searchText: searchBar.text!)
+            }
+        }
+    }
+    
     // MARK: -UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.currentPageNumber = 1
         filterContentForSearchText(searchText: searchBar.text!)
         self.searchBar.endEditing(true)
         self.infoLabel.isHidden = true
