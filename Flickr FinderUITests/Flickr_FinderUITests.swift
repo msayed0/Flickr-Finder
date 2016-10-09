@@ -57,8 +57,6 @@ class Flickr_FinderUITests: XCTestCase {
         enterSearchQuerySearchField.tap()
         enterSearchQuerySearchField.typeText("Amsterdam")
         app.buttons["Search"].tap()
-        let table = app.tables.element
-        XCTAssertTrue(table.cells.count>0)
     }
     
     // MARK: -View loading tests
