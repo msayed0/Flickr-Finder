@@ -52,9 +52,10 @@ class FlickrParsingHandler {
                 if let photoDictionary = response?["photo"] as? [String:AnyObject]
                 {
                     let descDictionary = photoDictionary["description"] as? NSDictionary
+                    let ownerDictionary = photoDictionary["owner"] as? NSDictionary
                     let descContent = descDictionary?["_content"] as? String
-                    let photoOwner = photoDictionary["realname"] as? String
-                    let photoLocation = photoDictionary["location"] as? String
+                    let photoOwner = ownerDictionary?["realname"] as? String
+                    let photoLocation = ownerDictionary?["location"] as? String
                     
                     editedPhotoModel.desc = descContent
                     editedPhotoModel.owner = photoOwner

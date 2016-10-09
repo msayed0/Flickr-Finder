@@ -29,9 +29,9 @@ class NetworkModel : PhotoGettingWrapper {
         })
     }
     
-    public func getImageInfoWith(photoID: String, photoModelToGetInfo: PhotoModel ,withCompletion: @escaping (_ returnedPhotoModel: PhotoModel) -> Void) {
+    public func getImageInfoWith(photoModelToGetInfo: PhotoModel ,withCompletion: @escaping (_ returnedPhotoModel: PhotoModel) -> Void) {
         
-        FlickrKit.shared().call("flickr.photos.getInfo", args: ["photo_id": photoID] , maxCacheAge: FKDUMaxAgeInfinite, completion: { (response, error) -> Void in
+        FlickrKit.shared().call("flickr.photos.getInfo", args: ["photo_id": photoModelToGetInfo.photoID] , maxCacheAge: FKDUMaxAgeInfinite, completion: { (response, error) -> Void in
             let parsedphotoModelObject = FlickrParsingHandler.parsePhotoInfoResult(withResponse: response, editedPhotoModel: photoModelToGetInfo)
             withCompletion(parsedphotoModelObject)
         })

@@ -15,8 +15,8 @@ class PhotoGettingWrapper {
         NetworkModel.sharedInstance.searchPhotosWithText(searchText: searchText,pageNumber: pageNumber,withCompletion:withCompletion)
     }
     
-    class func getPhotoInfoFromNetwork(photoId: String ,andPhotoModel photoModel: PhotoModel, withCompletion: @escaping (_ returnedPhotoModel: PhotoModel) -> Void) {
+    class func getPhotoInfoFromNetwork(photoModelToGetItsInfo photoModel: PhotoModel, withCompletion: @escaping (_ returnedPhotoModel: PhotoModel) -> Void) {
         
-        NetworkModel.sharedInstance.getImageInfoWith(photoID: photoId, photoModelToGetInfo: photoModel, withCompletion: withCompletion)
+        NetworkModel.sharedInstance.getImageInfoWith(photoModelToGetInfo: photoModel, withCompletion: withCompletion)
     }
 }
