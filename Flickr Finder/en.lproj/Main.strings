@@ -1,0 +1,15 @@
+
+/* Class = "UIViewController"; title = "flickr finder"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "flickr finder";
+
+/* Class = "UILabel"; text = "Search Results goes here, but first enter a search query above and hit Search"; ObjectID = "aPZ-Y3-XXn"; */
+"aPZ-Y3-XXn.text" = "Search Results goes here, but first enter a search query above and hit Search";
+
+/* Class = "UILabel"; text = "Photo Title"; ObjectID = "gD5-cA-IDz"; */
+"gD5-cA-IDz.text" = "Photo Title";
+
+/* Class = "UINavigationItem"; title = "Flickr Finder"; ObjectID = "kw3-5v-IOp"; */
+"kw3-5v-IOp.title" = "Flickr Finder";
+
+/* Class = "UISearchBar"; placeholder = "Enter Your Search Query"; ObjectID = "pQ8-MM-DY8"; */
+"pQ8-MM-DY8.placeholder" = "Enter Your Search Query";

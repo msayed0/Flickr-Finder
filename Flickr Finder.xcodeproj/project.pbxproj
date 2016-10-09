@@ -68,6 +68,7 @@
 		04DC13061DA994D5007BB92C /* FlickrParsingHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrParsingHandler.swift; sourceTree = "<group>"; };
 		04DC130B1DA9B5A2007BB92C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04DC13101DA9B7EB007BB92C /* LocalisationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalisationEngine.swift; sourceTree = "<group>"; };
+		04DC13131DA9C66F007BB92C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		08586D657D73984F8D8EBEC2 /* Pods_Flickr_FinderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flickr_FinderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12A41DEFB87F1CB62C620A1A /* Pods-Flickr FinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr FinderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr FinderTests/Pods-Flickr FinderTests.release.xcconfig"; sourceTree = "<group>"; };
 		48527E312A14087011D13332 /* Pods-Flickr Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr Finder/Pods-Flickr Finder.release.xcconfig"; sourceTree = "<group>"; };
@@ -579,6 +580,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0415BF3C1DA7EAA10095B73B /* Base */,
+				04DC13131DA9C66F007BB92C /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
