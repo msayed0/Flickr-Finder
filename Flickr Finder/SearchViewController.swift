@@ -61,11 +61,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         DispatchQueue.main.sync(execute: { () -> Void in
             if currentPageNumber>1 {
                 self.resultPhotos.insert(contentsOf: photos, at: self.resultPhotos.count-1)
+                self.tableView.reloadData()
             }
             else {
                 self.resultPhotos = photos
+                self.tableView.reloadData()
+                if resultPhotos.count > 0 {
+                    self.tableView.scrollToRow(at:IndexPath.init(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: false)
+                }
             }
-            self.tableView.reloadData()
             SVProgressHUD.dismiss()
         })
     }
