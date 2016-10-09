@@ -28,9 +28,72 @@ class Flickr_FinderUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    // MARK: - Functionality
+    func testKeyboardBehaviour() {
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCUIDevice.shared().orientation = .portrait
+        
+        let app = XCUIApplication()
+        let enterSearchQuerySearchField = app.searchFields["Enter Your Search Query"]
+        
+        XCTAssert(app.keyboards.count == 0, "The keyboard should be hidden on the start of the application")
+        
+        enterSearchQuerySearchField.tap()
+        XCTAssert(app.keyboards.count > 0, "The keyboard is not shown")
+        
+        enterSearchQuerySearchField.typeText("AMS")
+        app.buttons["Search"].tap()
+        
+        XCTAssert(app.keyboards.count == 0, "The keyboard should be hidden by now")
     }
     
+    func testGettingResults() {
+        
+        let app = XCUIApplication()
+        
+        let enterSearchQuerySearchField = app.searchFields["Enter Your Search Query"]
+        enterSearchQuerySearchField.tap()
+        enterSearchQuerySearchField.typeText("Amsterdam")
+        app.buttons["Search"].tap()
+        let table = app.tables.element
+        XCTAssertTrue(table.cells.count>0)
+    }
+    
+    // MARK: -View loading tests
+    func testIfTheTableViewBehavior() {
+        let app = XCUIApplication()
+        
+        //At first the table should be hidden
+        let table = app.tables.element
+        XCTAssertFalse(table.exists)
+    }
+    
+    func testIfTheTableViewBehaviorAfterSearch() {
+        let app = XCUIApplication()
+        
+        let table = app.tables.element
+        let enterSearchQuerySearchField = app.searchFields["Enter Your Search Query"]
+        enterSearchQuerySearchField.tap()
+        enterSearchQuerySearchField.typeText("Amsterdam")
+        app.buttons["Search"].tap()
+        //Tableview should be visible after search
+        XCTAssertTrue(table.exists)
+    }
+    
+    func testNoResults() {
+        XCUIDevice.shared().orientation = .portrait
+        
+        let app = XCUIApplication()
+        let enterYourSearchQuerySearchField = app.searchFields["Enter Your Search Query"]
+        enterYourSearchQuerySearchField.tap()
+        enterYourSearchQuerySearchField.typeText("amsterdam")
+        app.buttons["Search"].tap()
+        enterYourSearchQuerySearchField.tap()
+        enterYourSearchQuerySearchField.typeText("qwefjsdhfjsfhdjdj")
+        app.buttons["Search"].tap()
+        let table = app.tables.element
+        XCTAssertTrue(table.cells.count==0)
+    }
 }

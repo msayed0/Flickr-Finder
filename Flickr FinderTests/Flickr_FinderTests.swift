@@ -21,10 +21,33 @@ class Flickr_FinderTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPhotoInit() {
+        let photoUrl = URL.init(string:"https://www.google.nl/")
+        
+        let photo:PhotoModel = PhotoModel(fromPhotoUrl: photoUrl!,title: "title",andPhotoID: "100")
+        
+        if photo.photoUrl != photoUrl {
+            XCTAssert(false, "URL init error")
+        }
+            
+        else if photo.title != "title" {
+            XCTAssert(false, "title init error")
+        }
+            
+        else if photo.photoID != "100" {
+            XCTAssert(false, "photoID init error")
+        }
+            
+        else {
+            XCTAssert(true, "Initializing is working fine")
+        }
+        
     }
+    func testIfLocalisationIsWorking() {
+        let localizedString = "connectionOfflineMessage".localizedWithComment(comment: "Offline Connection Message")
+        XCTAssertEqual(localizedString, "Your Connection appears to be offline")
+    }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
