@@ -26,7 +26,7 @@ class FlickrParsingHandler {
                 {
                     for photoDictionary in photoArray {
                         
-                        let photoURL = FlickrKit.shared().photoURL(for: FKPhotoSizeSmall240, fromPhotoDictionary:photoDictionary)
+                        let photoURL = FlickrKit.shared().photoURL(for: FKPhotoSizeMedium800, fromPhotoDictionary:photoDictionary)
                         let photoTitle = photoDictionary["title"] as? String
                         let photoID = photoDictionary["id"] as? String
                         let photo : PhotoModel! = PhotoModel.init(fromPhotoUrl: photoURL!, title: photoTitle!,andPhotoID:photoID!)

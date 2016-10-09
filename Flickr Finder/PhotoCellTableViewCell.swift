@@ -14,25 +14,19 @@ class PhotoCellTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.photoThumbNail.clipsToBounds = true
     }
     
     func didScroll(tableView: UITableView, superView: UIView)
     {
-        let rectInSuperView: CGRect = tableView.convert(self.frame, to: superView);
-        let distanceFromCenter = superView.frame.height/2 - rectInSuperView.minY;
-        let difference = self.photoThumbNail.frame.height - self.frame.height;
-        let move = (distanceFromCenter / superView.frame.height) * difference;
-        
-        var imageRect = self.photoThumbNail.frame;
-        imageRect.origin.y = -(difference / 2) + move;
-        self.photoThumbNail.frame = imageRect;
+        let offsetY = tableView.contentOffset.y
+        for cell in tableView.visibleCells as! [PhotoCellTableViewCell] {
+            let x = cell.photoThumbNail.frame.origin.x
+            let w = cell.photoThumbNail.bounds.width
+            let h = cell.photoThumbNail.bounds.height
+            let y = ((offsetY - cell.frame.origin.y) / h) * 10
+            cell.photoThumbNail.frame = CGRect.init(x: x, y: y, width: w, height: h)
+        }
     }
     
 }
