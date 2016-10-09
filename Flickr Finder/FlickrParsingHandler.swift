@@ -54,10 +54,11 @@ class FlickrParsingHandler {
                     let descDictionary = photoDictionary["description"] as? NSDictionary
                     let descContent = descDictionary?["_content"] as? String
                     let photoOwner = photoDictionary["realname"] as? String
+                    let photoLocation = photoDictionary["location"] as? String
                     
                     editedPhotoModel.desc = descContent
                     editedPhotoModel.owner = photoOwner
-
+                    editedPhotoModel.location = photoLocation
                 }
             })
         }
