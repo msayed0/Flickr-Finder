@@ -95,6 +95,22 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: true)
+        let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        let selectedPhoto: PhotoModel = resultPhotos[indexPath.row]
+        SVProgressHUD.show()
+        
+        PhotoGettingWrapper.getPhotoInfoFromNetwork(photoModelToGetItsInfo: selectedPhoto, withCompletion: {completePhotoModel in
+            if (NetworkModel.sharedInstance.isOffline()) {
+                SVProgressHUD.showError(withStatus: "Your Connection appears to be offline")
+            }
+            else {
+                DispatchQueue.main.sync(execute: { () -> Void in
+                    SVProgressHUD.dismiss()
+                    detailsViewController.selectedPhoto = completePhotoModel
+                    self.navigationController?.pushViewController(detailsViewController, animated: true)
+                })
+            }
+        })
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
